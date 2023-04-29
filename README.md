@@ -3,14 +3,14 @@ BootCamp usando RobotFramework para automação de testes
 
 - Ferramentas : RobotFramework | Python | Docker | Git | PostgreSQL
 
-- Saindo do ZERO 
+## Saindo do ZERO 
     - Conhecendo o projeto 
     - Meu ambiente com Docker 
     - Desliguei minha máquina, e agora?
     - Stack do RocoCamp 
     - Escolhendo a IDE 
 
-- Introdução a Automação WEB 
+## Introdução a Automação WEB 
     - Login 
     - Console Emulator 
     - Resources e Keywords
@@ -23,7 +23,7 @@ BootCamp usando RobotFramework para automação de testes
     - Base Resources 
     - Ganchos de Suite 
 
-- Avançando na Automação 
+## Avançando na Automação 
     - Escrevendo cenários com Gherkin
     - Gancho de login + Timeouts Explícitos
     - Introdução ao Page Object
@@ -43,7 +43,7 @@ BootCamp usando RobotFramework para automação de testes
     - Encapsulando mais ações!
     - Melhorando as validações
 
-- Automação para API REST
+## Automação para API REST
     - Live - O que são APIs?
     - POST Sessions
     - POST Customers
@@ -56,12 +56,12 @@ BootCamp usando RobotFramework para automação de testes
     - PUT Customer
     - DELETE Customer
 
-- DevOps for Testers
+## DevOps for Testers
     - Introdução ao DevOps com Jenkins
     - Live - Continuous Testing Parte 1
     - Live - Continuous Testing Parte 2   
 
-- Estratégias de Automação
+## Estratégias de Automação
     - Massa de Testes através da API - Parte 1
     - Massa de Testes através da API - Parte 2
     - Finalizando o Contrato de Locação
