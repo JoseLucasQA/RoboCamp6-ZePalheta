@@ -22,5 +22,5 @@ Quando submeto minhas credenciais
     Click Element    xpath://button[text()='Entrar']
 
 Devo ver a area logada
-    Wait Until Element is Visible    Alugueis   5
+    Wait Until Page Contains    Aluguéis    5
     Close Browser
