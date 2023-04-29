@@ -1,13 +1,5 @@
 ***Settings***
-
-Documentation    Login
-Library          SeleniumLibrary
-
-***Test Cases***
-Login do administrador
-    Dado que acesso a pagina de Login
-    Quando submeto minhas credenciais    admin@zepalheta.com.br    pwd123 
-    Devo ver a area logada
+Library    SeleniumLibrary
 
 ***Keywords***
 Dado que acesso a pagina de Login
