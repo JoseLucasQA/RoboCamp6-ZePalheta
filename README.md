@@ -58,8 +58,8 @@ BootCamp usando RobotFramework para automação de testes
 
 ## DevOps for Testers
     - Introdução ao DevOps com Jenkins
-    - Live - Continuous Testing Parte 1
-    - Live - Continuous Testing Parte 2   
+    - Continuous Testing Parte 1
+    - Continuous Testing Parte 2   
 
 ## Estratégias de Automação
     - Massa de Testes através da API - Parte 1
