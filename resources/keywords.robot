@@ -13,6 +13,12 @@ Quando submeto minhas credenciais
     Input Text       css:input[placeholder=Senha]       ${password}
     Click Element    xpath://button[text()='Entrar']
 
-Devo ver a area logada
+Entao devo ver a area logada
     Wait Until Page Contains    Aluguéis    5
+    Close Browser
+
+Entao devo ter um toaster com a mensagem
+    [Arguments]    ${expectMessage}
+
+    Wait Until Element Contains    css:div[type=error] p    ${expectMessage}
     Close Browser
