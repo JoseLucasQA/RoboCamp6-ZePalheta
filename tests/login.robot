@@ -1,7 +1,6 @@
 ***Settings***
 Documentation    Login
-Resource         ../resources/keywords.robot
-Resource         ../resources/hooks.robot
+Resource         ../resources/base.robot
 Test Setup       Start session
 Test Teardown    Finish session
 

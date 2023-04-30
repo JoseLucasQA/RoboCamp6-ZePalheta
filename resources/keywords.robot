@@ -1,6 +1,3 @@
-***Settings***
-Library    SeleniumLibrary
-
 ***Keywords***
 Dado que acesso a pagina de Login
     Go To    http://192.168.99.100:3000/    
