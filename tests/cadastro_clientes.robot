@@ -6,6 +6,10 @@ Resource    ../resources/base.robot
 Test Setup       Login session
 Test Teardown    Finish session
 
+***Keywords***
+Campos obrigatórios
+    [Arguments]    ${name}    ${cpf}    ${address}    ${phone_number}
+
 ***Test Cases***
 Novo cliente
     Dado que acesso o formulario de cadastro de clientes

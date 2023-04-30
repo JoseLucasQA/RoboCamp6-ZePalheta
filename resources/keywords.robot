@@ -34,3 +34,8 @@ Entao devo ver a notificacao
     [Arguments]    ${expected_notice}
 
     Wait Until Element Contains    ${TOASTER_SUCCESS}    ${expected_notice}    5
+
+Entao devo ver mensagens informando campos obrigatórios
+    [Arguments]    ${requireds_message}    
+
+    Wait Until Page Contains    ${requireds_message}    5

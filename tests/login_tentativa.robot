@@ -1,7 +1,10 @@
 ***Settings***
-Documentation     Login Tentativa
-Resource          ../resources/base.robot
-Test Template     Tentativa de Login
+Documentation    Login Tentativa
+
+Resource    ../resources/base.robot
+
+Test Template    Tentativa de Login
+
 Suite Setup       Start session
 Suite Teardown    Finish session
 

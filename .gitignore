@@ -1,2 +1,2 @@
-logs/
-resources/libs/__pycache__
+logs
+__pycache__
