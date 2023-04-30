@@ -1,8 +1,10 @@
 ***Settings***
 Documentation    Login Tentativa
 Resource         ../resources/keywords.robot
-Test Template    Tentativa de Login.l
-
+Resource         ../resources/hooks.robot
+Test Template    Tentativa de Login
+Test Setup       Start session
+Test Teardown    Finish session
 ***keywords***
 Tentativa de Login
     [Arguments]    ${input_email}    ${input_senha}    ${output_mensagem}

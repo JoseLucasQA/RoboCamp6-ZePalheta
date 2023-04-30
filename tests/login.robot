@@ -1,6 +1,9 @@
 ***Settings***
 Documentation    Login
 Resource         ../resources/keywords.robot
+Resource         ../resources/hooks.robot
+Test Setup       Start session
+Test Teardown    Finish session
 
 ***Test Cases***
 Login do administrador
