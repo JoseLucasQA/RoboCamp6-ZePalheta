@@ -8,7 +8,5 @@ Finish session
 
 Login session
     Start session
-    Go To            http://192.168.99.100:3000/        
-    Input Text       id:txtEmail                        admin@zepalheta.com.br
-    Input Text       css:input[placeholder=Senha]       pwd123
-    Click Element    xpath://button[text()='Entrar']
+    Go To            http://192.168.99.100:3000/    
+    Login With       admin@zepalheta.com.br         pwd123    

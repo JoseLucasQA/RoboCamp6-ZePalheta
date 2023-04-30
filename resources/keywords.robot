@@ -5,9 +5,7 @@ Dado que acesso a pagina de Login
 Quando submeto minhas credenciais
     [Arguments]    ${email}    ${password}
 
-    Input Text       id:txtEmail                        ${email}
-    Input Text       css:input[placeholder=Senha]       ${password}
-    Click Element    xpath://button[text()='Entrar']
+    Login With    ${email}    ${password}
 
 Entao devo ver a area logada
     Wait Until Page Contains    Aluguéis    5
