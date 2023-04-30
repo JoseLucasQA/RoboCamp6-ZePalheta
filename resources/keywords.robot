@@ -24,11 +24,18 @@ Dado que acesso o formulario de cadastro de clientes
     Wait Until Element is Visible    ${CUSTOMERS_FORM}    5
     Click Element                    ${CUSTOMERS_FORM}
 
-Quando faço a inclusao desse cliente
+E que tenho o seguinte cliente
     [Arguments]    ${name}    ${cpf}    ${address}    ${phone_number}
 
     Remove Customer By Cpf    ${cpf}
-    Register New Customer     ${name}    ${cpf}    ${address}    ${phone_number}
+
+    Set Test Variable    ${name}
+    Set Test Variable    ${cpf}
+    Set Test Variable    ${address}
+    Set Test Variable    ${phone_number}
+
+Quando faço a inclusao desse cliente
+    Register New Customer    ${name}    ${cpf}    ${address}    ${phone_number}
 
 Entao devo ver a notificacao
     [Arguments]    ${expected_notice}

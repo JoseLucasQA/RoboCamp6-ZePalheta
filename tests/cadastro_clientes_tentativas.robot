@@ -13,7 +13,8 @@ Campos obrigatórios
     [Arguments]    ${name}    ${cpf}    ${address}    ${phone_number}    ${requireds_message}
 
     Dado que acesso o formulario de cadastro de clientes
-    Quando faço a inclusao desse cliente                       ${name}                 ${cpf}    ${address}    ${phone_number}
+    E que tenho o seguinte cliente                             ${name}                 ${cpf}    ${address}    ${phone_number}
+    Quando faço a inclusao desse cliente                       
     Entao devo ver mensagens informando campos obrigatórios    ${requireds_message}
 
 ***Test Cases***
