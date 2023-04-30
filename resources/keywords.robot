@@ -2,7 +2,7 @@
 
 # Login
 Dado que acesso a pagina de Login
-    Go To    http://192.168.99.100:3000/    
+    Go To    ${base_url}    
 
 Quando submeto minhas credenciais
     [Arguments]    ${email}    ${password}

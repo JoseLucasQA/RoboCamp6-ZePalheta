@@ -19,6 +19,8 @@ def remove_customer_by_cpf(cpf):
 
     # Executa a Query 
     cur.execute(query)
+
+    # Mostra a Query nos logs
     print(query)
 
     # Commita a query
