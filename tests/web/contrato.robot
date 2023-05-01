@@ -10,7 +10,7 @@ Test Teardown     Finish TestCase
 ***Test Cases***
 Novo Contrato de Locação
 
-    Dado que eu tenho o seguinte cliente cadastrado:    slash.json
+    Dado que eu tenho o seguinte cliente cadastrado:    adam.json
     E este cliente deseja alugar o seguinte equipo:     meteoro.json
     E acesso o formulário de contratos
     Quando faço um novo contrato de locação

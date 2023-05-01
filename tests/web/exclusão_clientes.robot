@@ -3,14 +3,15 @@ Documentation    Exclusão de clientes
 
 Resource    ../../resources/base.robot
 
-Suite Setup       Login session
-Suite Teardown    Finish session
+Suite Setup       Login Session
+Suite Teardown    Finish Session
+Test Teardown     Finish TestCase
 
 ***Test Cases***
-Remover cliente
-    Dado que eu tenho um cliente indesejado
-    ...                                           Bob Dilan                        12345678901    Rua dos Bugs, 101    11912345678
+Remover Cliente
+    Dado que eu tenho um cliente indesejado:
+    ...                                          Bon Dylan                        44444444444    Rua dos Bugs, 2000    21988888888
     E acesso a lista de clientes
-    Quando removo esse cliente 
-    Entao devo ver a notificacao                  Cliente removido com sucesso!
-    E esse cliente nao deve aparecer na lista 
+    Quando eu removo esse cliente
+    Então devo ver a notificação:                Cliente removido com sucesso!
+    E esse cliente não deve aparecer na lista
