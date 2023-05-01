@@ -76,3 +76,7 @@ BootCamp usando RobotFramework para automação de testes
         
     - Setup de ambiente 
         - docker exec -it zepalheta-api sh /home/node/api/setup.sh
+
+    - Comando Instalação Jenkins
+        - docker container run --name jenkins-blueocean --detach   -u root   --volume jenkins-data:/var/jenkins_home   --volume
+            /var/run/docker.sock:/var/run/docker.sock   --publish 8080:8080 --publish 50000:50000 jenkinsci/blueocean
