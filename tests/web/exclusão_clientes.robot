@@ -1,7 +1,7 @@
 ***Settings***
 Documentation    Exclusão de clientes
 
-Resource    ../resources/base.robot
+Resource    ../../resources/base.robot
 
 Suite Setup       Login session
 Suite Teardown    Finish session

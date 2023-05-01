@@ -1,6 +1,8 @@
 ***Settings***
 Documentation    Login
-Resource         ../resources/base.robot
+
+Resource         ../../resources/base.robot
+
 Test Setup       Start session
 Test Teardown    Finish session
 

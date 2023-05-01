@@ -1,7 +1,7 @@
 ***Settings***
 Documentation    Login Tentativa
 
-Resource    ../resources/base.robot
+Resource    ../../resources/base.robot
 
 Test Template    Tentativa de Login
 

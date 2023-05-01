@@ -1,7 +1,7 @@
 ***Settings***
 Documentation    Cadastro de clientes Tentativa
 
-Resource    ../resources/base.robot
+Resource    ../../resources/base.robot
 
 Test Template    Campos obrigatórios
 
