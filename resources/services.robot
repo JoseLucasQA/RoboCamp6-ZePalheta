@@ -1,71 +1,105 @@
 ***Settings***
 Documentation    Camada de serviços do projeto de automação
 
-Library    RequestsLibrary
-Library    OperatingSystem
-
+Library     RequestsLibrary
+Library     Collections
 Resource    helpers.robot
 
 ***Variables***
-${base_url_api}    http://zepalheta-api:3333 
+${base_api_url}    http://zepalheta-api:3333
 
 ***Keywords***
-Login Session By API
+## Helpers
+Get Session Token
+    ${resp}=    Post Session    admin@zepalheta.com.br    pwd123
+
+    ${token}    Convert To String    Bearer ${resp.json()['token']}
+
+    [return]    ${token}
+
+
+# POST /sessions
+Post Session
     [Arguments]    ${email}    ${password}
 
-    Create Session    zp-api    ${base_url_api}
+    Create Session    zp-api    ${base_api_url} 
 
-    &{payload}=    Create Dictionary    email=${email}                   password=${password}    
     &{headers}=    Create Dictionary    Content-Type=application/json
+    &{payload}=    Create Dictionary    email=${email}                   password=${password}
 
     ${resp}=    Post Request    zp-api    /sessions    data=${payload}    headers=${headers}
 
-    [Return]    ${resp}
+    [return]    ${resp}
 
-Get Token Authorization
-    ${resp}=     Login Session By API    ${admin_user}                     ${admin_password}
-    ${token}=    Convert to String       Bearer ${resp.json()['token']}
-
-    [Return]    ${token}
-
-New Customer By API
+# POST /customers
+Post Customer
     [Arguments]    ${payload}
 
-    Create Session    zp-api    ${base_url_api}
+    Create Session    zp-api    ${base_api_url}
 
-    ${token}=      Get Token Authorization
-    &{headers}=    Create Dictionary          content-type=application/json    authorization=${token}
+    ${token}=      Get Session Token
+    &{headers}=    Create Dictionary    content-type=application/json    authorization=${token}
 
     ${resp}=    Post Request    zp-api    /customers    data=${payload}    headers=${headers}
 
     [return]    ${resp}
 
+# PUT /customers
+Put Customer
+    [Arguments]    ${payload}    ${user_id}
+
+    Create Session    zp-api    ${base_api_url}
+
+    ${token}=      Get Session Token
+    &{headers}=    Create Dictionary    content-type=application/json    authorization=${token}
+
+    ${resp}=    Put Request    zp-api    /customers/${user_id}    data=${payload}    headers=${headers}
+
+    [return]    ${resp}
+
+# GET /customers
 Get Customers
-    Create Session    zp-api    ${base_url_api}
+    Create Session    zp-api    ${base_api_url}
 
-    ${token}=      Get Token Authorization
-    &{headers}=    Create Dictionary          Content-type=application/json    Authorization=${token}
+    ${token}=      Get Session Token
+    &{headers}=    Create Dictionary    Content-Type=Application/json    Authorization=${token}
 
-    ${resp}=    Get Request    zp-api    /customers    ${headers}
+    ${resp}=    Get Request    zp-api    /customers    headers=${headers}
 
-    [Return]    ${resp}
+    [return]    ${resp}
 
 Get Unique Customer
     [Arguments]    ${user_id}
 
-    Create Session    zp-api    ${base_url_api}
+    Create Session    zp-api    ${base_api_url}
 
-    ${token}=      Get Token Authorization
-    &{headers}=    Create Dictionary          Content-type=application/json    Authorization=${token}
+    ${token}=      Get Session Token
+    &{headers}=    Create Dictionary    Content-Type=Application/json    Authorization=${token}
 
-    ${resp}=    Get Request    zp-api    /customers/${user_id}    ${headers}
+    ${resp}=    Get Request    zp-api    /customers/${user_id}    headers=${headers}
 
-    [Return]    ${resp}
+    [return]    ${resp}
 
+# DELETE /customers
 Delete Customer
     [Arguments]    ${cpf}
 
-    ${token}=      Get Token Authorization
-    &{headers}=    Create Dictionary          Content-Type=application/json    Authorization=${token}
+    ${token}=      Get Session Token
+    &{headers}=    Create Dictionary    content-type=application/json    authorization=${token}
 
-    Delete Request    zp-api    /customers/${cpf}    headers=${headers}
+    ${resp}=    Delete Request    zp-api    /customers/${cpf}    headers=${headers}
+
+    [return]    ${resp}
+
+# POST /equipos
+Post Equipo
+    [Arguments]    ${payload}
+
+    Create Session    zp-api    ${base_api_url}
+
+    ${token}=      Get Session Token
+    &{headers}=    Create Dictionary    content-type=application/json    authorization=${token}
+
+    ${resp}=    Post Request    zp-api    /equipos    data=${payload}    headers=${headers}
+
+    [return]    ${resp}
