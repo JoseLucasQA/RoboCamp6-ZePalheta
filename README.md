@@ -66,3 +66,13 @@ BootCamp usando RobotFramework para automação de testes
     - Massa de Testes através da API - Parte 2
     - Finalizando o Contrato de Locação
     - Encerrando com Paralelismo
+    
+### Comandos 
+    - Iniciar ambiente docker
+        - docker-compose up -d
+    
+    - Desligar ambiente docker
+        - docker-compose down 
+        
+    - Setup de ambiente 
+        - docker exec -it zepalheta-api sh /home/node/api/setup.sh
