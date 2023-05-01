@@ -17,7 +17,7 @@ Entao devo ter um toaster com a mensagem
 
     Wait Until Element Contains    ${TOASTER_ERROR_P}    ${expectMessage}
 
-#Customers
+# Customers
 Dado que acesso o formulario de cadastro de clientes
     Go To Customers
     Wait Until Element is Visible    ${CUSTOMERS_FORM}    5
@@ -54,6 +54,12 @@ Entao devo ver mensagens informando campos obrigatórios
 
     Wait Until Page Contains    ${requireds_message}    5
 
+E esse cliente deve ser exibido na lista
+    ${cpf_formatado}=                Format Cpf           ${cpf}
+    Go Back 
+    Wait Until Element Is Visible    ${CUSTOMERS_LIST}    5
+    Table Should Contain             ${CUSTOMERS_LIST}    ${cpf_formatado}    
+
 # Equipos
 Dado que acesso o formulario de cadastro de equipamentos
     Go To Customers
@@ -75,3 +81,26 @@ Mas esse equipamento ja existe no sistema
 
 Quando faço a inclusao desse equipamento
     Register New Equipo    ${name}    ${price}
+
+# Remove Customer
+Dado que eu tenho um cliente indesejado
+    [Arguments]    ${name}    ${cpf}    ${address}    ${phone_number}    
+
+    Remove Customer By CPF    ${cpf}
+    Insert Customer           ${name}    ${cpf}    ${address}    ${phone_number} 
+
+    Set Test Variable    ${cpf}
+
+E acesso a lista de clientes
+    Go To Customers
+
+Quando removo esse cliente
+    ${cpf_formatado}=    Format Cpf    ${cpf}
+
+    Set Test Variable    ${cpf_formatado} 
+
+    Go To Customer Details    ${cpf_formatado}
+    Click Remove Customer
+
+E esse cliente nao deve aparecer na lista
+    Wait Until Page Does Not Contain    ${cpf_formatado}
