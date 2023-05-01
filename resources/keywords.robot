@@ -15,7 +15,7 @@ Entao devo ver a area logada
 Entao devo ter um toaster com a mensagem
     [Arguments]    ${expectMessage}
 
-    Wait Until Element Contains    ${TOASTER_ERROR}    ${expectMessage}
+    Wait Until Element Contains    ${TOASTER_ERROR_P}    ${expectMessage}
 
 #Customers
 Dado que acesso o formulario de cadastro de clientes
@@ -34,6 +34,9 @@ E que tenho o seguinte cliente
     Set Test Variable    ${address}
     Set Test Variable    ${phone_number}
 
+Mas esse cpf ja existe no sistema
+    Insert Customer    ${name}    ${cpf}    ${address}    ${phone_number}
+
 Quando faço a inclusao desse cliente
     Register New Customer    ${name}    ${cpf}    ${address}    ${phone_number}
 
@@ -41,6 +44,11 @@ Entao devo ver a notificacao
     [Arguments]    ${expected_notice}
 
     Wait Until Element Contains    ${TOASTER_SUCCESS}    ${expected_notice}    5
+
+Entao devo ver a notificacao de erro
+    [Arguments]    ${expected_notice}
+
+    Wait Until Element Contains    ${TOASTER_ERROR}    ${expected_notice}    5
 
 Entao devo ver mensagens informando campos obrigatórios
     [Arguments]    ${requireds_message}    
