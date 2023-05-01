@@ -16,18 +16,22 @@ Remover cliente
 
 ***Keywords***
 Dado que eu tenho um cliente indesejado
-    [Arguments]    ${name}    ${$cpf}    ${address}    ${phone_number}    
+    [Arguments]    ${name}    ${cpf}    ${address}    ${phone_number}    
 
-    Remove Customer By CPF    ${$cpf}
-    Insert Customer           ${name}    ${$cpf}    ${address}    ${phone_number} 
+    Remove Customer By CPF    ${cpf}
+    Insert Customer           ${name}    ${cpf}    ${address}    ${phone_number} 
+
+    Set Test Variable    ${cpf}
 
 E acesso a lista de clientes
     Go To Customers
 
 Quando removo esse cliente
-    Wait Until Element Is Visible    xpath://td[text()='123.456.789-01']    5
-    Click Element                    xpath://td[text()='123.456.789-01']    
-    Wait Until Element Is Visible    xpath://button[text()='APAGAR']        5
-    Click Element                    xpath://button[text()='APAGAR']        
+    ${cpf_formatado}=    Format Cpf    ${cpf}
+
+    Wait Until Element Is Visible    xpath://td[text()='${cpf_formatado}']    5
+    Click Element                    xpath://td[text()='${cpf_formatado}']    
+    Wait Until Element Is Visible    xpath://button[text()='APAGAR']          5
+    Click Element                    xpath://button[text()='APAGAR']          
 
 
