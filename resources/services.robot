@@ -19,15 +19,22 @@ Login Session By API
 
     [Return]    ${resp}
 
+Get Token Authorization
+    ${resp}=     Login Session By API    ${admin_user}                     ${admin_password}
+    ${token}=    Convert to String       Bearer ${resp.json()['token']}
+
+    [Return]    ${token}
+
 New Customer By API
-    [Arguments]    ${name}    ${cpf}    ${address}    ${phone_number}
+    [Arguments]    ${payload}
 
     Create Session    zp-api    ${base_url_api}
 
-    ${cpf_formatado}=    Format Cpf                 ${cpf} 
-    ${token}=            Get Token Authorization
+    ${formated_cpf}=    Format Cpf    ${payload['cpf']} 
 
-    &{payload}=    Create Dictionary    name=${name}                     cpf=${cpf_formatado}      address=${address}    phone_number=${phone_number}
+    &{payload}=    Create Dictionary          name=${payload['name']}    cpf=${formated_cpf}    address=${payload['address']}    phone_number=${payload['phone_number']}
+    ${token}=      Get Token Authorization
+
     &{headers}=    Create Dictionary    Content-Type=application/json    Authorization=${token}
 
     ${remove_customer}=    Delete Request    zp-api    /customers/${payload['cpf']}    headers=${headers}
@@ -36,11 +43,13 @@ New Customer By API
 
     [Return]    ${resp}
 
-Get Token Authorization
-    ${resp}=     Login Session By API    ${admin_user}                     ${admin_password}
-    ${token}=    Convert to String       Bearer ${resp.json()['token']}
+Delete Customer
+    [Arguments]    ${cpf}
 
-    [Return]    ${token}
+    ${token}=      Get Token Authorization
+    &{headers}=    Create Dictionary          Content-Type=application/json    Authorization=${token}
+
+    Delete Request    zp-api    /customers/${cpf}    headers=${headers}
 
 Validate Message
     [Arguments]    ${fail_message}    ${expected_message}

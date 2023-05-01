@@ -6,6 +6,10 @@ Resource    ../../resources/base.robot
 
 ***Test Cases***
 New Customer By API
-    ${resp}=    New Customer By API    Teste    12345678910    Rua dos Bugs,1010    11912345678
+    &{payload}=    Create Dictionary    name=Teste    cpf=12345678910    address=Rua dos Bugs,1010    phone_number=11912345678
+
+    Delete Customer    ${payload['cpf']}
+    ${resp}=           New Customer By API    ${payload}
+
 
     Status Should Be    200    ${resp}
