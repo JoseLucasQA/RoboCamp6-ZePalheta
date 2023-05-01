@@ -19,8 +19,7 @@ Entao devo ter um toaster com a mensagem
 
 #Customers
 Dado que acesso o formulario de cadastro de clientes
-    Wait Until Element is Visible    ${NAV_CUSTOMERS}     5
-    Click Element                    ${NAV_CUSTOMERS}
+    Go To Customers
     Wait Until Element is Visible    ${CUSTOMERS_FORM}    5
     Click Element                    ${CUSTOMERS_FORM}
 
@@ -57,11 +56,10 @@ Entao devo ver mensagens informando campos obrigatórios
 
 # Equipos
 Dado que acesso o formulario de cadastro de equipamentos
-    Wait Until Element is Visible    ${NAV_CUSTOMERS}    5
-    Click Element                    ${NAV_CUSTOMERS}
-    Wait Until Element is Visible    ${NAV_EQUIPOS}      5
+    Go To Customers
+    Wait Until Element is Visible    ${NAV_EQUIPOS}     5
     Click Element                    ${NAV_EQUIPOS}
-    Wait Until Element is Visible    ${EQUIPOS_FORM}     5
+    Wait Until Element is Visible    ${EQUIPOS_FORM}    5
     Click Element                    ${EQUIPOS_FORM}
 
 E que tenho o seguinte equipamento
