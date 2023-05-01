@@ -1,7 +1,8 @@
 ***Settings***
-Documentation    Representação da página login com suas ações e elementos 
+Documentation    Representação da página login com suas ações e elementos
 
-***Keywords**
+
+***Keywords***
 Login With
     [Arguments]    ${email}    ${password}
 
