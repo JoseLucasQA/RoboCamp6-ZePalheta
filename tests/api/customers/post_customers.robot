@@ -4,7 +4,7 @@ Resource    ../../../resources/services.robot
 
 ***Test Cases***
 New Customer
-    ${payload}=    Get Json    customers/customer.json
+    ${payload}=    Get Json    customers/flea.json
 
     Delete Customer    ${payload['cpf']}
     ${resp}=           Post Customer        ${payload}
@@ -38,3 +38,4 @@ Phone is required
 
     Status Should Be    400                          ${resp}
     Should Be Equal     ${resp.json()['message']}    "phone_number" is required
+

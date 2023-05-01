@@ -27,3 +27,4 @@ Update a Customer
     ${resp}    Get Unique Customer    ${user_id}
 
     Should Be Equal    ${resp.json()['name']}    Saul Hudson
+

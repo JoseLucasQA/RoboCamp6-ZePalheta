@@ -5,7 +5,7 @@ Resource    ../../../resources/services.robot
 ***Test Cases***
 Delete Customer
 
-    ${origin}=    Get Json    customers/slash.json
+    ${origin}=    Get Json    customers/chimbinha.json
 
     Delete Customer    ${origin['cpf']}
     ${resp}=           Post Customer       ${origin}
