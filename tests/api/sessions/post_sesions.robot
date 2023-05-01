@@ -1,18 +1,16 @@
-***Settings***
-Documentation    Login via api 
+*** Settings ***
 
 Resource    ../../../resources/services.robot
-Resource    ../../../resources/base.robot
 
-***Test Cases***
-Login com sucesso
-    ${resp}=            Login Session By API    ${admin_user}    ${admin_password}
-    Status Should Be    200                     ${resp}
+*** Test Cases ***
+Login com Sucesso
+    ${resp}=            Post Session    admin@zepalheta.com.br    pwd123
+    Status Should Be    200             ${resp}
 
-Senha incorreta
-    ${resp}=            Login Session By API    ${admin_user}    abc123
-    Status Should Be    401                     ${resp}
+Senha Incorreta
+    ${resp}=            Post Session    admin@zepalheta.com.br    abc123
+    Status Should Be    401             ${resp}
 
-Usuario nao existe
-    ${resp}=            Login Session By API    admin@gmail.com    abc123
-    Status Should Be    401                     ${resp}
+Usuário não existe
+    ${resp}=            Post Session    404@yahoo.com.br    pwd123
+    Status Should Be    401             ${resp}
