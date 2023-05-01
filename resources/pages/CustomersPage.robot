@@ -14,4 +14,3 @@ Register New Customer
     Input Text       id:address                            ${address}
     Input Text       id:phone_number                       ${phone_number}
     Click Element    xpath://button[text()='CADASTRAR']
-

@@ -51,3 +51,18 @@ def insert_customer(name,cpf,phone_number,address):
 	    "values('{}', '{}', '{}', '{}');". format(name,formated_cpf,phone_number,address)
     
     execute_q(query)
+
+# Remove equipamento no banco
+def remove_equipo_by_name_and_price(name):
+
+    query = "delete from public.equipos where name = '{}';" . format(name)
+
+    execute_q(query) 
+
+# Inserir Equipamento no banco
+def insert_equipo(name,price):
+
+    query = "insert into public.equipos(name,daily_price)"\
+	    "values('{}', '{}');". format(name,price)
+    
+    execute_q(query)

@@ -54,3 +54,26 @@ Entao devo ver mensagens informando campos obrigatórios
     [Arguments]    ${requireds_message}    
 
     Wait Until Page Contains    ${requireds_message}    5
+
+# Equipos
+Dado que acesso o formulario de cadastro de equipamentos
+    Wait Until Element is Visible    ${NAV_CUSTOMERS}    5
+    Click Element                    ${NAV_CUSTOMERS}
+    Wait Until Element is Visible    ${NAV_EQUIPOS}      5
+    Click Element                    ${NAV_EQUIPOS}
+    Wait Until Element is Visible    ${EQUIPOS_FORM}     5
+    Click Element                    ${EQUIPOS_FORM}
+
+E que tenho o seguinte equipamento
+    [Arguments]    ${name}    ${price}
+
+    Remove Equipo By Name And Price    ${name}
+
+    Set Test Variable    ${name}
+    Set Test Variable    ${price}
+
+Mas esse equipamento ja existe no sistema
+    Insert Equipo    ${name}    ${price}    
+
+Quando faço a inclusao desse equipamento
+    Register New Equipo    ${name}    ${price}

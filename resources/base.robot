@@ -10,6 +10,7 @@ Resource    components/Toaster.robot
 
 Resource    pages/LoginPage.robot
 Resource    pages/CustomersPage.robot
+Resource    pages/EquiposPage.robot
 
 ***Variables***
 ${base_url}          http://192.168.99.100:3000/    
