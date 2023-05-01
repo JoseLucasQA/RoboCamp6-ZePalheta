@@ -2,6 +2,9 @@
 Documentation    Camada de serviços do projeto de automação
 
 Library    RequestsLibrary
+Library    OperatingSystem
+
+Resource    helpers.robot
 
 ***Variables***
 ${base_url_api}    http://zepalheta-api:3333 
@@ -30,18 +33,12 @@ New Customer By API
 
     Create Session    zp-api    ${base_url_api}
 
-    ${formated_cpf}=    Format Cpf    ${payload['cpf']} 
-
-    &{payload}=    Create Dictionary          name=${payload['name']}    cpf=${formated_cpf}    address=${payload['address']}    phone_number=${payload['phone_number']}
     ${token}=      Get Token Authorization
-
-    &{headers}=    Create Dictionary    Content-Type=application/json    Authorization=${token}
-
-    ${remove_customer}=    Delete Request    zp-api    /customers/${payload['cpf']}    headers=${headers}
+    &{headers}=    Create Dictionary          content-type=application/json    authorization=${token}
 
     ${resp}=    Post Request    zp-api    /customers    data=${payload}    headers=${headers}
 
-    [Return]    ${resp}
+    [return]    ${resp}
 
 Delete Customer
     [Arguments]    ${cpf}
@@ -50,8 +47,3 @@ Delete Customer
     &{headers}=    Create Dictionary          Content-Type=application/json    Authorization=${token}
 
     Delete Request    zp-api    /customers/${cpf}    headers=${headers}
-
-Validate Message
-    [Arguments]    ${fail_message}    ${expected_message}
-
-    Should Be Equal    ${fail_message}    ${expected_message}

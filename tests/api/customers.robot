@@ -1,15 +1,49 @@
-***Settings***
-Documentation    Novo cliente via api 
+*** Settings ***
+Documentation    Novo cliente via api
 
 Resource    ../../resources/services.robot
-Resource    ../../resources/base.robot        
+Resource    ../../resources/base.robot
 
-***Test Cases***
+
+*** Test Cases ***
 New Customer By API
-    &{payload}=    Create Dictionary    name=Teste    cpf=12345678910    address=Rua dos Bugs,1010    phone_number=11912345678
+    ${payload}=    Get Json    customers/customer.json    
 
     Delete Customer    ${payload['cpf']}
     ${resp}=           New Customer By API    ${payload}
 
-
     Status Should Be    200    ${resp}
+
+Name is required
+    ${payload}=    Get Json    customers/no_name.json    
+
+    ${resp}=    New Customer By API    ${payload}
+
+    Status Should Be    400                          ${resp}
+    Should Be Equal     ${resp.json()['message']}    "name" is required
+
+Cpf is required
+    ${payload}=    Get Json    customers/no_cpf.json    
+
+    ${resp}=    New Customer By API    ${payload}
+
+    Status Should Be    400                          ${resp}
+    Should Be Equal     ${resp.json()['message']}    "cpf" is required
+
+Address is required
+    ${payload}=    Get Json    customers/no_address.json    
+
+    ${resp}=    New Customer By API    ${payload}
+
+    Status Should Be    400                          ${resp}
+    Should Be Equal     ${resp.json()['message']}    "address" is required
+
+Phone is required
+    ${payload}=    Get Json    customers/no_phone.json    
+
+    Delete Customer    ${payload['cpf']}
+
+    ${resp}=    New Customer By API    ${payload}
+
+    Status Should Be    400                          ${resp}
+    Should Be Equal     ${resp.json()['message']}    "phone_number" is required
