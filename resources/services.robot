@@ -40,6 +40,28 @@ New Customer By API
 
     [return]    ${resp}
 
+Get Customers
+    Create Session    zp-api    ${base_url_api}
+
+    ${token}=      Get Token Authorization
+    &{headers}=    Create Dictionary          Content-type=application/json    Authorization=${token}
+
+    ${resp}=    Get Request    zp-api    /customers    ${headers}
+
+    [Return]    ${resp}
+
+Get Unique Customer
+    [Arguments]    ${user_id}
+
+    Create Session    zp-api    ${base_url_api}
+
+    ${token}=      Get Token Authorization
+    &{headers}=    Create Dictionary          Content-type=application/json    Authorization=${token}
+
+    ${resp}=    Get Request    zp-api    /customers/${user_id}    ${headers}
+
+    [Return]    ${resp}
+
 Delete Customer
     [Arguments]    ${cpf}
 

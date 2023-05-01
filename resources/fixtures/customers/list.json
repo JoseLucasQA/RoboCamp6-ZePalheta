@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+            "name": "Rodolfo",
+            "cpf": "204.492.150-24",
+            "address": "Rua dos Bugs, 1001",
+            "phone_number": "(11) 9.5555-5001"
+        },
+        {
+            "name": "Digão",
+            "cpf": "627.537.540-04",
+            "address": "Rua dos Bugs, 1002",
+            "phone_number": "(11) 9.5555-5002"
+        },
+        {
+            "name": "Fred",
+            "cpf": "219.706.960-87",
+            "address": "Rua dos Bugs, 1003",
+            "phone_number": "(11) 9.5555-5003"
+        },
+        {
+            "name": "Canisso",
+            "cpf": "321.415.150-92",
+            "address": "Rua dos Bugs, 1004",
+            "phone_number": "(11) 9.5555-5004"
+        }
+    ]
+}

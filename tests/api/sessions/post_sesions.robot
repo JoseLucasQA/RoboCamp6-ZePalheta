@@ -1,8 +1,8 @@
 ***Settings***
 Documentation    Login via api 
 
-Resource    ../../resources/services.robot
-Resource    ../../resources/base.robot
+Resource    ../../../resources/services.robot
+Resource    ../../../resources/base.robot
 
 ***Test Cases***
 Login com sucesso

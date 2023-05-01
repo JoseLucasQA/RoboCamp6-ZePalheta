@@ -1,9 +1,8 @@
 *** Settings ***
-Documentation    Novo cliente via api
+Documentation    Post Customers
 
-Resource    ../../resources/services.robot
-Resource    ../../resources/base.robot
-
+Resource    ../../../resources/services.robot
+Resource    ../../../resources/base.robot
 
 *** Test Cases ***
 New Customer By API

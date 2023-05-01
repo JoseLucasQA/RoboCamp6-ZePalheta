@@ -1,5 +1,5 @@
 ***Settings***
-Library    Library    OperatingSystem
+Library    OperatingSystem
 
 ***Keywords***
 Get Json
